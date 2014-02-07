@@ -1,6 +1,21 @@
 class Organization < ActiveRecord::Base
   attr_accessible :address, :description, :latitude, :longitude, :name
 
+  geocoded_by :address
+  after_validation :geocode
+
+
+
+
+
+
+
+
+
+
+
+
+
   #Edit this if CSV 'schema' changes
   #value is the name of a column in csv file
   @@column_mappings = {
