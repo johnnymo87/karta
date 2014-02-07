@@ -1,9 +1,11 @@
 class CreateOrganizations < ActiveRecord::Migration
   def change
     create_table :organizations do |t|
-      t.string :name
+      t.float :latitude
+      t.float :longitude
       t.string :address
-      t.string :postcode
+      t.text :description
+      t.string :name
 
       t.timestamps
     end

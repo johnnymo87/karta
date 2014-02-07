@@ -2,9 +2,11 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
     <th>Address</th>
-    <th>Postcode</th>
+    <th>Description</th>
+    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +14,11 @@
 
 <% @organizations.each do |organization| %>
   <tr>
-    <td><%= organization.name %></td>
+    <td><%= organization.latitude %></td>
+    <td><%= organization.longitude %></td>
     <td><%= organization.address %></td>
-    <td><%= organization.postcode %></td>
+    <td><%= organization.description %></td>
+    <td><%= organization.name %></td>
     <td><%= link_to 'Show', organization %></td>
     <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
     <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
