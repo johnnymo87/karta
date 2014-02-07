@@ -1,7 +1,7 @@
 Karta::Application.routes.draw do  root :to => 'organizations#index'
 
   resources :organizations
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
