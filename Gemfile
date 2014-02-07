@@ -3,10 +3,10 @@ source 'http://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.14'
 gem 'pg'
-gem 'gmaps4rails'
 gem 'jquery-rails'
+gem 'underscore-rails'
 gem 'geocoder'
-
+gem 'gmaps4rails'
 
 group :development do
   gem 'debugger', '1.6.1'
