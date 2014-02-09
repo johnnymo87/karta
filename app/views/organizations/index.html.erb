@@ -1,11 +1,18 @@
-<div style='width: 100%;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="container-liquid">
+  <div id="map" style='position: absolute; left: 0; width: 100%; height: 100%;'></div>
 </div>
 
 <script type="text/javascript">
     handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(<%=raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-    });</script>
+    handler.buildMap({
+                provider: {
+                    zoom: 14,
+                    center: new google.maps.LatLng(51.580697,-0.34212),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                },
+                internal: {id: 'map'}},
+            function () {
+                markers = handler.addMarkers(<%=raw @hash.to_json %>);
+//                handler.bounds.extendWith(markers);
+//                handler.fitMapToBounds();
+            });</script>
