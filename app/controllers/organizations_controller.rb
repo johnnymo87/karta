@@ -2,10 +2,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @organizations }
     end
   end
 
@@ -16,7 +14,6 @@ class OrganizationsController < ApplicationController
       marker.lng org.longitude
     end
     respond_to do |format|
-      puts @hash.as_json
       format.json { render json: @hash.as_json }
     end
   end
