@@ -12,6 +12,7 @@ class OrganizationsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@organizations) do |org, marker|
       marker.lat org.latitude
       marker.lng org.longitude
+      marker.json title: org.name
     end
     respond_to do |format|
       format.json { render json: @hash.as_json }

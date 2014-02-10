@@ -9,8 +9,8 @@
     var list = document.getElementById("org-list");
     list.style.visibility = 'hidden';
     handler = Gmaps.build('Google');
-              var xmlhttp = new XMLHttpRequest();
-              var markers;
+    var xmlhttp = new XMLHttpRequest();
+    var markers;
     handler.marker_options.clusterer = { maxZoom: 13, gridSize: 30 }
     handler.buildMap({
                 provider: {
@@ -27,7 +27,7 @@
                   list.style.visibility = '';
                   for (var i = 0; i < data.length; i++) {
                     var li = document.createElement('li');
-                    li.innerHTML = "I am an Org@(" + data[i].lat + ", " + data[i].lng + ")";
+                    li.innerHTML = "I am an Org " + data[i].title + "@(" + data[i].lat + ", " + data[i].lng + ")";
                     list.appendChild(li);
                   }
                 }
