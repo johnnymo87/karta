@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
   end
 
   def get_marker_hash
-    @organizations = Organization.where('latitude IS NOT NULL AND longitude IS NOT NULL') 
+    @organizations = Organization.where('latitude IS NOT NULL AND longitude IS NOT NULL AND ((latitude - 51.5795877)^2 + (longitude - -0.3350667)^2) < 0.5')
     @hash = Gmaps4rails.build_markers(@organizations) do |org, marker|
       marker.lat org.latitude
       marker.lng org.longitude

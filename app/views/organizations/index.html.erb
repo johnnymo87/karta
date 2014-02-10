@@ -11,6 +11,7 @@
     handler = Gmaps.build('Google');
               var xmlhttp = new XMLHttpRequest();
               var markers;
+    handler.marker_options.clusterer = { maxZoom: 13, gridSize: 30 }
     handler.buildMap({
                 provider: {
                     zoom: 13,
@@ -32,7 +33,6 @@
                 }
               };
               xmlhttp.open("GET", "/organizations/get_marker_hash", true);
-              xmlhttp.setRequestHeader("Content-type", "application/json");
               xmlhttp.send();
                 // markers = handler.addMarkers(<%=raw @hash.to_json %>);
 //                handler.bounds.extendWith(markers);
