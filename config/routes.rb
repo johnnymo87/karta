@@ -1,5 +1,6 @@
 Karta::Application.routes.draw do  root :to => 'organizations#index'
 
+  get '/organizations/get_marker_hash', to: 'organizations#get_marker_hash'
   resources :organizations
 
   # The priority is based upon order of creation:

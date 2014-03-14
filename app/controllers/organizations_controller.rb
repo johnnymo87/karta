@@ -2,14 +2,20 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
+  def get_marker_hash
+    @organizations = Organization.where('latitude IS NOT NULL AND longitude IS NOT NULL AND ((latitude - 51.5795877)^2 + (longitude - -0.3350667)^2) < 0.5')
     @hash = Gmaps4rails.build_markers(@organizations) do |org, marker|
       marker.lat org.latitude
       marker.lng org.longitude
+      marker.json title: org.name
     end
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @organizations }
+      format.json { render json: @hash.as_json }
     end
   end
 
